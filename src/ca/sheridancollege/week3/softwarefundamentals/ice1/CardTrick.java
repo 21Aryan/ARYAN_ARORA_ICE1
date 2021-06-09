@@ -17,7 +17,7 @@ import java.util.Scanner;
  * student no- 991626687
  */
 public class CardTrick {
-    
+   luckyCard object= new luckyCard();
   public static void main(String[] args) {
 
         int valuex = 0;
