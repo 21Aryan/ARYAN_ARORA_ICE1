@@ -76,4 +76,21 @@ public class CardTrick {
             cUser.setSuit(suitx);
             inputScan = new Scanner(System.in);
         } while (contLoop);
+        // Ask now for the card value 1 - 13
+        do {
+            contLoop = false;
+            System.out.print("\nChoose a VALUE (1) to (13):\n");
+            try {
+                valuex = inputScan.nextInt();
+                if (valuex < 1 || valuex > 13) {
+                    throw new Exception();
+                }
+            } catch (Exception e) {
+                System.out.println("Only 1-13. Try Again.");
+                contLoop = true;
+            }
+            cUser.setValue(valuex);
+            inputScan = new Scanner(System.in);
+        } while (contLoop);
+
         
