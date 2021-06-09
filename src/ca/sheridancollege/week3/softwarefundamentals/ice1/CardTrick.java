@@ -14,10 +14,11 @@ import java.util.Scanner;
  * for the match to the user's card. To be used as starting code in ICE 1
  * @author Sivagama 
  * @author ARYAN ARORA
+ * student no- 991626687
  */
 public class CardTrick {
     
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
         int valuex = 0;
         String suitx = null;
@@ -42,7 +43,8 @@ public class CardTrick {
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             magicHand[i] = c;
         }
-//insert code to ask the user for Card value and suit, create their card
+
+        //insert code to ask the user for Card value and suit, create their card
         // and search magicHand here
         //Then report the result here
         boolean contLoop;
@@ -76,6 +78,7 @@ public class CardTrick {
             cUser.setSuit(suitx);
             inputScan = new Scanner(System.in);
         } while (contLoop);
+
         // Ask now for the card value 1 - 13
         do {
             contLoop = false;
@@ -93,4 +96,36 @@ public class CardTrick {
             inputScan = new Scanner(System.in);
         } while (contLoop);
 
+        //Display the user selection
+        System.out.println("Card you selected as below");
+        System.out.print(cUser.getValue());
+        System.out.print(" ");
+        System.out.println(cUser.getSuit());
+       
+        System.out.println("*************************\n");
         
+        // Boolean flag for is user card is found in magicHands
+        boolean foundCard = false;
+
+        System.out.println("Let's reveal the magic hand now");
+        // Looks for user card in magicHands array
+        for (Card magicCard : magicHand) {
+            // Sets flag to true if user card is found in magicHands
+            System.out.println(magicCard.getValue() + " " + magicCard.getSuit());
+            if (magicCard.getValue() == cUser.getValue() && magicCard.getSuit().equals(cUser.getSuit())) {
+                foundCard = true;
+                break;
+            }
+        }
+//                if (c.getValue() == luckyCard.getValue() && c.getSuit().equals(luckyCard.getSuit())) {
+//                    foundCard = true;
+//                }
+
+            // Prints out message based on if user card found in magicHands
+            if (foundCard) {
+                System.out.println("Found it!");
+            } else {
+                System.out.println("Sorry, didn't find it.");
+            }
+    }
+}
