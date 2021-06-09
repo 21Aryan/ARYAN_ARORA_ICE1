@@ -42,5 +42,38 @@ public class CardTrick {
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             magicHand[i] = c;
         }
+//insert code to ask the user for Card value and suit, create their card
+        // and search magicHand here
+        //Then report the result here
+        boolean contLoop;
 
+        Card cUser = new Card();
+        do {
+            contLoop = false;
+            System.out.print("\nChoose a SUIT (1)Herats / (2)Diamonds / (3)Spades / (4)Clubs):\n");
+            try {
+                valuex = inputScan.nextInt();
+                switch (valuex) {
+                    case 1:
+                        suitx = "Hearts";
+                        break;
+                    case 2:
+                        suitx = "Diamonds";
+                        break;
+                    case 3:
+                        suitx = "Spades";
+                        break;
+                    case 4:
+                        suitx = "Clubs";
+                        break;
+                    default:
+                        throw new Exception();
+                }
+            } catch (Exception e) {
+                System.out.println("Only 1-4. Try Again.");
+                contLoop = true;
+            }
+            cUser.setSuit(suitx);
+            inputScan = new Scanner(System.in);
+        } while (contLoop);
         
